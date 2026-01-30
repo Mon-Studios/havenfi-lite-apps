@@ -29,9 +29,9 @@ import {
 
 import * as customChains from "@/lib/chains";
 
-type MorphoContractName = "Morpho" | "MetaMorphoFactory" | "MetaMorphoV1_1Factory";
+type MorphoContractName = "Morpho" | "MetaMorphoFactory" | "MetaMorphoV1_1Factory" | "VaultV2Factory";
 
-type OptionalContracts = "MetaMorphoFactory";
+type OptionalContracts = "MetaMorphoFactory" | "VaultV2Factory";
 type RequiredContracts = Exclude<MorphoContractName, OptionalContracts>;
 type DeploymentDetails = { address: Address; fromBlock: bigint };
 export type Deployments = {
