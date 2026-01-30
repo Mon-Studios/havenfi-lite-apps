@@ -72,7 +72,7 @@ describe("deposit flow", () => {
       await client.deal({ account, amount: parseEther(amount), erc20: asset.address }); // for deposit
       await client.impersonateAccount({ address: account });
 
-      render(<TestableEarnSheetContent vaultAddress={vaultAddress} asset={asset} isDeadDepositStateValid={true} />, {
+      render(<TestableEarnSheetContent vaultAddress={vaultAddress} asset={asset} />, {
         wagmiConfig,
       });
 
@@ -178,7 +178,7 @@ describe("withdraw flow", () => {
       ]);
       const maxText = formatUnits(maxWithdraw, asset.decimals!);
 
-      render(<TestableEarnSheetContent vaultAddress={vaultAddress} asset={asset} isDeadDepositStateValid={true} />, {
+      render(<TestableEarnSheetContent vaultAddress={vaultAddress} asset={asset} />, {
         wagmiConfig,
       });
 
@@ -251,7 +251,7 @@ describe("withdraw flow", () => {
       await client.deal({ account, amount: parseEther(shares), erc20: vaultAddress }); // for withdraw
       await client.impersonateAccount({ address: account });
 
-      render(<TestableEarnSheetContent vaultAddress={vaultAddress} asset={asset} isDeadDepositStateValid={true} />, {
+      render(<TestableEarnSheetContent vaultAddress={vaultAddress} asset={asset} />, {
         wagmiConfig,
       });
 
