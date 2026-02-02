@@ -26,7 +26,6 @@ import {
   mode as modeMainnet,
   optimism,
   plumeMainnet,
-  polygon,
   scroll as scrollMainnet,
   sei,
   soneium,
@@ -65,14 +64,15 @@ const chains = [
   // full support
   mainnet,
   base,
-  polygon,
-  unichain,
-  customChains.katana,
+  // polygon,
+  //unichain,
+  //customChains.katana,
   arbitrum,
   customChains.hyperevm,
-  optimism,
-  customChains.monad,
+  // optimism,
+  // customChains.monad,
   // fallback support (alphabetical)
+  /*
   abstract,
   bsc,
   celo,
@@ -95,6 +95,7 @@ const chains = [
   // NOTE: Disabled because RPC rate limits are too strict
   // customChains.basecamp,
   // bitlayer,
+  */
 ] as const;
 
 const transports: Record<(typeof chains)[number]["id"], Transport> = {
@@ -113,11 +114,6 @@ const transports: Record<(typeof chains)[number]["id"], Transport> = {
     { url: "https://base.drpc.org", batch: false },
     { url: "https://mainnet.base.org", batch: { batchSize: 10 } },
     { url: "https://base.lava.build", batch: false },
-  ]),
-  [polygon.id]: createFallbackTransport([
-    ...createPonderHttp(polygon.id),
-    { url: "https://polygon.gateway.tenderly.co", batch: { batchSize: 10 } },
-    { url: "https://polygon.drpc.org", batch: false },
   ]),
   [unichain.id]: createFallbackTransport([
     ...createPonderHttp(unichain.id),
