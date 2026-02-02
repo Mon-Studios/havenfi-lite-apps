@@ -89,15 +89,6 @@ export default function Page() {
                 Earn
               </Button>
             </Link>
-            <Link to={SubPage.Borrow} relative="path">
-              <Button
-                variant={selectedSubPage === SubPage.Borrow ? "tertiary" : "secondaryTab"}
-                size="lg"
-                className="rounded-full px-4 font-light md:px-6"
-              >
-                Borrow
-              </Button>
-            </Link>
           </div>
         </div>
         <div className="flex items-center gap-2">

@@ -1,13 +1,13 @@
 import { SafeLink } from "@morpho-org/uikit/components/safe-link";
 import { type Deployments } from "@morpho-org/uikit/lib/deployments";
 import { ReactNode } from "react";
-import { hemi, optimism, plumeMainnet, polygon, sei, worldchain } from "wagmi/chains";
+import { hemi, plumeMainnet } from "wagmi/chains";
 
 export const APP_DETAILS = {
   // NOTE: Should always match the title in `index.html` (won't break anything, but should be correct)
   name: import.meta.env.VITE_APP_TITLE,
   description: "A minimal and open-source version of the main Morpho App",
-  url: "https://lite.morpho.org",
+  url: "https://lite.havenfi.co",
   icon: "/favicon.svg",
 };
 
@@ -34,66 +34,6 @@ export const BANNERS: Record<keyof Deployments, { color: string; text: ReactNode
           Solera
         </SafeLink>
         .
-      </span>
-    ),
-  },
-  [plumeMainnet.id]: {
-    color: "bg-[rgb(255,61,0)]",
-    text: (
-      <span className="grow py-2 text-center">
-        Access additional features and explore incentives via the interface offered by{" "}
-        <SafeLink className="underline" href="https://app.mysticfinance.xyz">
-          Mystic
-        </SafeLink>
-        .
-      </span>
-    ),
-  },
-  [polygon.id]: {
-    color: "bg-purple-500",
-    text: (
-      <span className="grow py-2 text-center">
-        Claim rewards and access enhanced features on the external{" "}
-        <SafeLink className="underline" href="https://compound.blue">
-          Compound Blue
-        </SafeLink>{" "}
-        interface.
-      </span>
-    ),
-  },
-  [sei.id]: {
-    color: "bg-[rgb(145,44,34)]",
-    text: (
-      <span className="grow py-2 text-center">
-        Claim rewards and access enhanced features on the external{" "}
-        <SafeLink className="underline" href="https://app.feather.zone/portfolio">
-          Feather
-        </SafeLink>{" "}
-        interface.
-      </span>
-    ),
-  },
-  [optimism.id]: {
-    color: "bg-red-500",
-    text: (
-      <span className="grow py-2 text-center">
-        The most popular OP Mainnet markets are also accessible on{" "}
-        <SafeLink className="underline" href="https://moonwell.fi">
-          Moonwell
-        </SafeLink>
-        .
-      </span>
-    ),
-  },
-  [worldchain.id]: {
-    color: "bg-black",
-    text: (
-      <span className="grow py-2 text-center">
-        Claim rewards and access enhanced features on the external{" "}
-        <SafeLink className="underline" href="https://oku.trade/morpho/vaults?inputChain=worldchain">
-          Oku Trade
-        </SafeLink>{" "}
-        interface.
       </span>
     ),
   },

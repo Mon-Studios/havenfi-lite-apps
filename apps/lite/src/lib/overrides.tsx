@@ -1,7 +1,6 @@
 import { tac } from "@morpho-org/uikit/lib/chains/tac";
-import { CORE_DEPLOYMENTS } from "@morpho-org/uikit/lib/deployments";
 import { type Address } from "viem";
-import { celo, sei } from "viem/chains";
+import { arbitrum, mainnet, base, sei } from "viem/chains";
 
 export const CREATE_METAMORPHO_EVENT_OVERRIDES: Record<number, Address[]> = {
   [sei.id]: ["0x015F10a56e97e02437D294815D8e079e1903E41C", "0x948FcC6b7f68f4830Cd69dB1481a9e1A142A4923"],
@@ -22,7 +21,7 @@ export function getDeploylessMode(chainId: number | undefined): "deployless" | "
 // On these chains, vaults/markets must have >= 1e9 shares owned by the 0xDEAD address in order
 // to show up, and contract accounts are allowed to deposit. On all other chains, the 0xDEAD
 // requirement is unenforced, and contract accounts are blocked from depositing.
-const ENFORCE_DEAD_DEPOSIT_CHAINS = [...CORE_DEPLOYMENTS, celo.id];
+const ENFORCE_DEAD_DEPOSIT_CHAINS = [arbitrum.id, mainnet.id, base.id] as number[];
 
 export function getShouldEnforceDeadDeposit(chainId: number | undefined) {
   return chainId !== undefined && ENFORCE_DEAD_DEPOSIT_CHAINS.includes(chainId);
